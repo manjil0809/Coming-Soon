@@ -1,154 +1,782 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Coming Soon</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0f;
-      color: white;
-      overflow: hidden;
-    }
-
-    /* Background glow */
-    body::before {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: #6c63ff;
-      border-radius: 50%;
-      filter: blur(180px);
-      opacity: 0.25;
-      top: -150px;
-      left: -100px;
-    }
-
-    body::after {
-      content: "";
-      position: absolute;
-      width: 450px;
-      height: 450px;
-      background: #00c6ff;
-      border-radius: 50%;
-      filter: blur(180px);
-      opacity: 0.18;
-      bottom: -150px;
-      right: -100px;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 40px 25px;
-      max-width: 700px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #b8b5ff;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-size: clamp(48px, 8vw, 90px);
-      line-height: 1;
-      letter-spacing: -4px;
-      margin-bottom: 25px;
-      background: linear-gradient(90deg, #ffffff, #aaa7ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p {
-      color: #a5a5ad;
-      font-size: 18px;
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 0 auto 35px;
-    }
-
-    .loader {
-      width: 45px;
-      height: 45px;
-      margin: 0 auto;
-      border: 3px solid rgba(255, 255, 255, 0.12);
-      border-top-color: #ffffff;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    .footer {
-      position: fixed;
-      bottom: 25px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      color: #55555e;
-      font-size: 13px;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        letter-spacing: -2px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manjil Aryal — Builder, Researcher, Founder</title>
+<meta name="description" content="Manjil Aryal — software developer, researcher and founder from Pokhara, Nepal. Building technology that solves real problems.">
+<meta name="author" content="Manjil Aryal">
+<meta property="og:title" content="Manjil Aryal — Builder, Researcher, Founder">
+<meta property="og:description" content="Software developer, researcher and founder from Pokhara, Nepal.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  /* Reveal animations only apply when JS is running, so content is never
+     left invisible if script.js fails to load. */
+  document.documentElement.className += ' js';
+</script>
 </head>
-
 <body>
 
-  <main class="container">
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="badge">Something new is coming</div>
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#hero" class="nav__brand" aria-label="Manjil Aryal — home">
+      <span class="nav__mark">MA</span>
+      <span class="nav__name">Manjil Aryal</span>
+    </a>
 
-    <h1>Coming Soon.</h1>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#skills">Skills</a>
+    </nav>
 
-    <p>
-      We're working on something exciting.
-      Stay tuned — we'll be launching very soon.
+    <a href="#contact" class="nav__cta">Get in touch</a>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav class="mobile-menu__links" aria-label="Mobile">
+    <a href="#about"><span>01</span>About</a>
+    <a href="#experience"><span>02</span>Experience</a>
+    <a href="#projects"><span>03</span>Projects</a>
+    <a href="#research"><span>04</span>Research</a>
+    <a href="#leadership"><span>05</span>Leadership</a>
+    <a href="#achievements"><span>06</span>Achievements</a>
+    <a href="#skills"><span>07</span>Skills</a>
+    <a href="#contact"><span>08</span>Contact</a>
+  </nav>
+</div>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <canvas class="hero__canvas" id="starfield" aria-hidden="true"></canvas>
+  <div class="hero__glow" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <p class="hero__eyebrow reveal">
+      <span class="dot"></span> Pokhara, Nepal &nbsp;·&nbsp; Computer Science
     </p>
 
-    <div class="loader"></div>
+    <h1 class="hero__title">
+      <span class="line reveal" style="--d:.05s">Building technology</span>
+      <span class="line reveal" style="--d:.15s">that solves <em>real problems.</em></span>
+    </h1>
 
-  </main>
+    <p class="hero__lede reveal" style="--d:.3s">
+      I'm Manjil — a developer, researcher and founder. I build mobile and AI products,
+      run experiments with real data, and bring people together around technology.
+      Most of what I know came from making things and watching how people actually use them.
+    </p>
 
-  <div class="footer">
-    © 2026 · All rights reserved.
+    <div class="hero__actions reveal" style="--d:.42s">
+      <a href="#projects" class="btn btn--primary">
+        Explore my work
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#contact" class="btn btn--ghost">Get in touch</a>
+    </div>
+
+    <dl class="hero__stats reveal" style="--d:.55s">
+      <div><dt>Startup</dt><dd>Co-founder &amp; CEO, Chilvy</dd></div>
+      <div><dt>Research</dt><dd>Biomedical systems · Astronomy</dd></div>
+      <div><dt>Community</dt><dd>WordCamp Nepal organiser</dd></div>
+    </dl>
   </div>
 
+  <a class="hero__scroll" href="#about" aria-label="Scroll to about">
+    <span class="hero__scroll-line" aria-hidden="true"></span>
+    Scroll
+  </a>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">About</h2>
+    </div>
+
+    <div class="about">
+      <div class="about__text">
+        <p class="reveal lead">
+          I grew up in Pokhara, in and around an NGO residential community that was home to
+          roughly 150 children. Living among people with very different histories taught me
+          early what belonging and responsibility actually look like in practice.
+        </p>
+        <p class="reveal">
+          I'm a first-generation college student. Almost everything I know about software I
+          learned by building it — reading documentation late at night, breaking things,
+          shipping an app to real users and finding out what I'd got wrong. That path took me
+          from writing small scripts to co-founding a food-tech startup, prototyping a
+          biomedical monitoring device, and analysing a century of astronomical observations.
+        </p>
+        <p class="reveal">
+          Three things keep showing up in my work: curiosity about how systems behave,
+          impatience with problems nobody has bothered to fix, and a liking for getting people
+          into the same room. I'm headed into computer science with a second interest in
+          applied mathematics, and I care most about the point where research becomes a
+          product someone can actually use.
+        </p>
+        <blockquote class="reveal quote">
+          Technology is only worth something when it solves a problem people actually
+          experience.
+        </blockquote>
+      </div>
+
+      <aside class="about__side">
+        <div class="card card--profile reveal">
+          <div class="profile__img">
+            <img src="assets/img/portrait.svg" alt="Portrait of Manjil Aryal" loading="lazy">
+          </div>
+          <ul class="meta-list">
+            <li><span>Based in</span><strong>Pokhara, Nepal</strong></li>
+            <li><span>School</span><strong>SOS Hermann Gmeiner School Gandaki</strong></li>
+            <li><span>Status</span><strong>Grade 12 graduate</strong></li>
+            <li><span>Intended major</span><strong>Computer Science</strong></li>
+            <li><span>Also studying</span><strong>Applied Mathematics</strong></li>
+          </ul>
+        </div>
+
+        <div class="card card--identities reveal">
+          <h3>What I do</h3>
+          <div class="identity">
+            <span class="identity__k">Builder</span>
+            <p>Mobile and web products, AI-powered systems, embedded prototypes.</p>
+          </div>
+          <div class="identity">
+            <span class="identity__k">Researcher</span>
+            <p>Biomedical sensing, machine learning, astronomical data analysis.</p>
+          </div>
+          <div class="identity">
+            <span class="identity__k">Founder &amp; organiser</span>
+            <p>Startups, hackathons, student tech communities and events.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <ul class="interests reveal" aria-label="Areas of interest">
+      <li>Artificial Intelligence</li>
+      <li>Machine Learning</li>
+      <li>Software Engineering</li>
+      <li>Full-stack &amp; Mobile</li>
+      <li>Human–Computer Interaction</li>
+      <li>Product Development</li>
+      <li>Entrepreneurship</li>
+      <li>Biomedical Research</li>
+      <li>Accessible Technology</li>
+      <li>Community Building</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="section section--alt" id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Experience</h2>
+      <p class="sec-sub">Where I've built, researched and led.</p>
+    </div>
+
+    <ol class="timeline">
+      <li class="tl reveal">
+        <div class="tl__meta">
+          <span class="tl__role">Co-founder &amp; CEO</span>
+          <span class="tl__org">Chilvy</span>
+        </div>
+        <div class="tl__body">
+          <p>
+            A food-tech startup built around dish-level discovery — reviewing the individual
+            dish rather than the whole restaurant. I led product and development, shipped an
+            iOS and Android MVP in Flutter and Firebase, and raised $5,000 in seed funding.
+            I also rebuilt backend components to deal with scalability problems we hit as
+            usage grew.
+          </p>
+          <ul class="tags">
+            <li>Flutter</li><li>Firebase</li><li>Product design</li><li>Fundraising</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <div class="tl__meta">
+          <span class="tl__role">Communication Team</span>
+          <span class="tl__org">WordCamp Nepal</span>
+        </div>
+        <div class="tl__body">
+          <p>
+            Part of the communication team for WordCamp Nepal 2027, working on social content,
+            sponsor and volunteer communication, and promotional material. Before that I was
+            volunteer lead at WordCamp Nepal 2026, running Hall 2 operations in Pokhara with a
+            team of around 40 volunteers.
+          </p>
+          <ul class="tags">
+            <li>Event operations</li><li>Comms</li><li>Volunteer leadership</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <div class="tl__meta">
+          <span class="tl__role">Biomedical Systems Research Intern</span>
+          <span class="tl__org">Dr. Koirala Research Institute for Biotechnology &amp; Biodiversity</span>
+        </div>
+        <div class="tl__body">
+          <p>
+            Built a biomedical monitoring prototype on Arduino and Raspberry Pi, integrating
+            six sensors with web and mobile remote monitoring. I also explored AI-assisted
+            analysis of the resulting reports.
+          </p>
+          <ul class="tags">
+            <li>Arduino</li><li>Raspberry Pi</li><li>Sensors</li><li>Remote monitoring</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <div class="tl__meta">
+          <span class="tl__role">Mentee, 2025 Cohort</span>
+          <span class="tl__org">Incubate Nepal</span>
+        </div>
+        <div class="tl__body">
+          <p>
+            Selected as one of 34 mentees from Gandaki Province. I worked on Shubhayatra, a
+            travel-technology concept, running 139 surveys and 34 interviews and prototyping in
+            Figma while getting feedback on business models, revenue streams and operating
+            costs.
+          </p>
+          <ul class="tags">
+            <li>User research</li><li>Figma</li><li>Business modelling</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <div class="tl__meta">
+          <span class="tl__role">Machine Learning Team Member</span>
+          <span class="tl__org">COSOG</span>
+        </div>
+        <div class="tl__body">
+          <p>
+            Selected from 1,087 applicants into a six-person team building a plant disease
+            detection system with Python, CNNs and ResNet on Kaggle datasets. The tool has been
+            used by 89+ farmers.
+          </p>
+          <ul class="tags">
+            <li>Python</li><li>CNN</li><li>ResNet</li><li>Computer vision</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <div class="tl__meta">
+          <span class="tl__role">Freelance Developer</span>
+          <span class="tl__org">Independent</span>
+        </div>
+        <div class="tl__body">
+          <p>
+            Web and mobile work for clients alongside school, earning NPR 100,000 — my first
+            real lesson in scoping, deadlines and explaining technical trade-offs to people who
+            don't write code.
+          </p>
+          <ul class="tags">
+            <li>Web development</li><li>Client work</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Selected projects</h2>
+      <p class="sec-sub">Things I've built, prototyped and shipped.</p>
+    </div>
+
+    <div class="projects">
+
+      <!-- Chilvy -->
+      <article class="proj proj--feature reveal">
+        <div class="proj__media">
+          <img src="assets/projects/chilvy.svg" alt="Chilvy app interface" loading="lazy">
+        </div>
+        <div class="proj__body">
+          <header class="proj__head">
+            <h3>Chilvy</h3>
+            <span class="proj__role">Co-founder &amp; CEO</span>
+          </header>
+          <p class="proj__desc">
+            A food discovery app built on a simple idea: people don't crave restaurants, they
+            crave dishes. Chilvy lets users review and discover individual dishes, with social
+            food diaries, streaks, leaderboards and location-based discovery layered on top.
+          </p>
+          <ul class="proj__points">
+            <li>Shipped an iOS and Android MVP with Flutter and Firebase</li>
+            <li>Raised $5,000 in seed funding</li>
+            <li>Owned product design, development and business strategy</li>
+            <li>Rebuilt backend components to fix scalability limits</li>
+          </ul>
+          <ul class="tags">
+            <li>Flutter</li><li>Dart</li><li>Firebase</li><li>UI/UX</li>
+          </ul>
+          <div class="proj__links">
+            <a href="#" data-replace="github">GitHub</a>
+            <a href="#" data-replace="demo">Live demo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Shubhayatra -->
+      <article class="proj reveal">
+        <div class="proj__media">
+          <img src="assets/projects/shubhayatra.svg" alt="Shubhayatra travel prototype" loading="lazy">
+        </div>
+        <div class="proj__body">
+          <header class="proj__head">
+            <h3>Shubhayatra</h3>
+            <span class="proj__role">Founder · Incubate Nepal 2025</span>
+          </header>
+          <p class="proj__desc">
+            A travel-technology concept addressing friction in Nepal's tourism ecosystem,
+            developed through the Incubate Nepal mentorship programme.
+          </p>
+          <ul class="proj__points">
+            <li>139 surveys and 34 interviews with travellers and operators</li>
+            <li>Interactive prototype designed in Figma</li>
+            <li>Validated revenue model against operating costs</li>
+          </ul>
+          <ul class="tags">
+            <li>Figma</li><li>User research</li><li>Prototyping</li>
+          </ul>
+          <div class="proj__links">
+            <a href="#" data-replace="demo">Prototype</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- COSOG -->
+      <article class="proj reveal">
+        <div class="proj__media">
+          <img src="assets/projects/cosog.svg" alt="Plant disease detection model" loading="lazy">
+        </div>
+        <div class="proj__body">
+          <header class="proj__head">
+            <h3>Plant Disease Detection</h3>
+            <span class="proj__role">ML engineer · COSOG</span>
+          </header>
+          <p class="proj__desc">
+            A computer-vision system that identifies crop disease from leaf images, built so a
+            farmer with a phone can get an answer without an agronomist on site.
+          </p>
+          <ul class="proj__points">
+            <li>CNN and ResNet models trained on Kaggle datasets</li>
+            <li>Six-member team, selected from 1,087 applicants</li>
+            <li>Used by 89+ farmers</li>
+          </ul>
+          <ul class="tags">
+            <li>Python</li><li>Deep learning</li><li>ResNet</li><li>CNN</li>
+          </ul>
+          <div class="proj__links">
+            <a href="#" data-replace="github">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Biomedical -->
+      <article class="proj reveal">
+        <div class="proj__media">
+          <img src="assets/projects/biomedical.svg" alt="Biomedical monitoring prototype" loading="lazy">
+        </div>
+        <div class="proj__body">
+          <header class="proj__head">
+            <h3>Biomedical Monitoring System</h3>
+            <span class="proj__role">Research intern</span>
+          </header>
+          <p class="proj__desc">
+            A hardware prototype for remote patient monitoring, built at Dr. Koirala Research
+            Institute for Biotechnology and Biodiversity.
+          </p>
+          <ul class="proj__points">
+            <li>Six sensors integrated on Arduino and Raspberry Pi</li>
+            <li>Web and mobile dashboards for remote readings</li>
+            <li>Explored AI-powered analysis of generated reports</li>
+          </ul>
+          <ul class="tags">
+            <li>Arduino</li><li>Raspberry Pi</li><li>Python</li><li>IoT</li>
+          </ul>
+          <div class="proj__links">
+            <a href="#" data-replace="github">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- AAVSO -->
+      <article class="proj reveal">
+        <div class="proj__media">
+          <img src="assets/projects/aavso.svg" alt="Delta Cephei light curve" loading="lazy">
+        </div>
+        <div class="proj__body">
+          <header class="proj__head">
+            <h3>Delta Cephei Analysis</h3>
+            <span class="proj__role">Independent research · AAVSO</span>
+          </header>
+          <p class="proj__desc">
+            A study of the variable star Delta Cephei using more than a century of amateur and
+            professional observations.
+          </p>
+          <ul class="proj__points">
+            <li>34,843 observations spanning 106 years analysed</li>
+            <li>Examined its ~5.3664-day pulsation period</li>
+            <li>Combined observation data with Gaia distance measurements</li>
+          </ul>
+          <ul class="tags">
+            <li>Python</li><li>Data analysis</li><li>Astronomy</li>
+          </ul>
+          <div class="proj__links">
+            <a href="#" data-replace="github">Notebook</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hamro Subidha -->
+      <article class="proj reveal">
+        <div class="proj__media">
+          <img src="assets/projects/hamro-subidha.svg" alt="Hamro Subidha concept" loading="lazy">
+        </div>
+        <div class="proj__body">
+          <header class="proj__head">
+            <h3>Hamro Subidha</h3>
+            <span class="proj__role">Concept &amp; development</span>
+          </header>
+          <p class="proj__desc">
+            A platform for finding public schemes and services that citizens are entitled to but
+            rarely hear about — 70+ programmes made searchable in one place.
+          </p>
+          <ul class="proj__points">
+            <li>Explored discovery for 70+ public schemes and services</li>
+            <li>Focused on plain-language eligibility explanations</li>
+          </ul>
+          <ul class="tags">
+            <li>Web development</li><li>Information design</li>
+          </ul>
+          <div class="proj__links">
+            <a href="#" data-replace="github">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- AIDA -->
+      <article class="proj reveal">
+        <div class="proj__media">
+          <img src="assets/projects/aida.svg" alt="AIDA accessibility project" loading="lazy">
+        </div>
+        <div class="proj__body">
+          <header class="proj__head">
+            <h3>AIDA</h3>
+            <span class="proj__role">Accessibility technology</span>
+          </header>
+          <p class="proj__desc">
+            Work around assistive technology for deaf and hard-of-hearing users, exploring how
+            everyday interactions can be made legible without sound.
+          </p>
+          <ul class="proj__points">
+            <li>Accessibility-first interaction design</li>
+            <li>Explored inclusive technology for underserved users</li>
+          </ul>
+          <ul class="tags">
+            <li>Accessibility</li><li>HCI</li><li>Prototyping</li>
+          </ul>
+          <div class="proj__links">
+            <a href="#" data-replace="github">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESEARCH ================= -->
+<section class="section section--alt" id="research">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Research</h2>
+      <p class="sec-sub">Questions I've chased with data and hardware.</p>
+    </div>
+
+    <div class="research">
+      <article class="rcard reveal">
+        <span class="rcard__field">Biomedical systems</span>
+        <h3>Remote monitoring with low-cost hardware</h3>
+        <p>
+          Can six off-the-shelf sensors, an Arduino and a Raspberry Pi produce readings useful
+          enough for remote monitoring? I built the prototype, the web and mobile interfaces,
+          and looked at how AI could summarise the reports it generated.
+        </p>
+        <ul class="tags"><li>Arduino</li><li>Raspberry Pi</li><li>Sensor integration</li></ul>
+      </article>
+
+      <article class="rcard reveal">
+        <span class="rcard__field">Astronomy</span>
+        <h3>A century of Delta Cephei</h3>
+        <p>
+          Working with AAVSO data, I analysed 34,843 observations collected over 106 years to
+          study the pulsation period of Delta Cephei — about 5.3664 days — and combined it with
+          Gaia distance measurements.
+        </p>
+        <ul class="tags"><li>Python</li><li>Time-series analysis</li><li>AAVSO · Gaia</li></ul>
+      </article>
+
+      <article class="rcard reveal">
+        <span class="rcard__field">Machine learning</span>
+        <h3>Disease detection from leaf images</h3>
+        <p>
+          Training CNN and ResNet architectures on Kaggle plant datasets to classify crop
+          disease, with the constraint that the result had to be usable by farmers rather than
+          just accurate on a benchmark.
+        </p>
+        <ul class="tags"><li>CNN</li><li>ResNet</li><li>Kaggle</li></ul>
+      </article>
+
+      <article class="rcard reveal">
+        <span class="rcard__field">Computation</span>
+        <h3>Quantum optimisation explorations</h3>
+        <p>
+          Self-directed reading and experimentation on quantum approaches to optimisation and
+          computational problem-solving — currently curiosity rather than contribution.
+        </p>
+        <ul class="tags"><li>Optimisation</li><li>Quantum computing</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEADERSHIP ================= -->
+<section class="section" id="leadership">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Leadership &amp; community</h2>
+      <p class="sec-sub">Getting people into the same room, then giving them something to do.</p>
+    </div>
+
+    <div class="journey reveal">
+      <h3 class="journey__title">My WordCamp journey</h3>
+      <ol class="journey__steps">
+        <li><span>Attendee</span><em>2025</em><p>Travelled ~200 km with six friends to WordCamp Nepal.</p></li>
+        <li><span>Volunteer lead</span><em>2026</em><p>Led Hall 2 operations in Pokhara with ~40 volunteers.</p></li>
+        <li><span>Speaker</span><em>Bharatpur</em><p>One of the youngest speakers at WordCamp Bharatpur.</p></li>
+        <li><span>Organiser</span><em>2027</em><p>Communication team for WordCamp Nepal.</p></li>
+      </ol>
+      <p class="journey__note">
+        Along the way I contributed more than 1,600 photographs to the WordPress Photo Directory.
+      </p>
+    </div>
+
+    <div class="lead-grid">
+      <article class="lcard reveal">
+        <h3>Interact District 3292</h3>
+        <span class="lcard__role">District President</span>
+        <ul>
+          <li>District President, leading initiatives across the district</li>
+          <li>Previously Vice President, Lakeside Club</li>
+          <li>Served as District IT Head</li>
+          <li>Community service and youth leadership programmes</li>
+        </ul>
+      </article>
+
+      <article class="lcard reveal">
+        <h3>ICT Club</h3>
+        <span class="lcard__role">President</span>
+        <ul>
+          <li>Elected president with 531 votes</li>
+          <li>Organised technology activities and sessions for students</li>
+          <li>Built a pipeline of students into competitions and projects</li>
+        </ul>
+      </article>
+
+      <article class="lcard reveal">
+        <h3>CyberUtsav</h3>
+        <span class="lcard__role">Organising team</span>
+        <ul>
+          <li>Helped organise an international high-school hackathon</li>
+          <li>Involved across three seasons</li>
+        </ul>
+      </article>
+
+      <article class="lcard reveal">
+        <h3>Sport</h3>
+        <span class="lcard__role">Cricket · wicketkeeper-batter</span>
+        <ul>
+          <li>Played nine tournaments</li>
+          <li>Part of two tournament-winning teams</li>
+          <li>Organised inter-school badminton competitions</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+<section class="section section--alt" id="achievements">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Achievements</h2>
+      <p class="sec-sub">Facts, not decoration.</p>
+    </div>
+
+    <div class="ach-grid">
+      <article class="ach ach--wide reveal">
+        <span class="ach__num">Top 0.01%</span>
+        <h3>National Merit Scholarship</h3>
+        <p>Full high-school tuition scholarship awarded through a highly competitive national examination, placing in approximately the top 0.01% of test takers.</p>
+      </article>
+      <article class="ach reveal">
+        <span class="ach__num">$5,000</span>
+        <h3>Seed funding raised</h3>
+        <p>For Chilvy, my food-tech startup.</p>
+      </article>
+      <article class="ach reveal">
+        <span class="ach__num">34 / province</span>
+        <h3>Incubate Nepal 2025</h3>
+        <p>Selected as a mentee from Gandaki Province.</p>
+      </article>
+      <article class="ach reveal">
+        <span class="ach__num">1 of 1,087</span>
+        <h3>COSOG selection</h3>
+        <p>Chosen from 1,087 applicants for the ML programme.</p>
+      </article>
+      <article class="ach reveal">
+        <span class="ach__num">34,843</span>
+        <h3>Observations analysed</h3>
+        <p>Astronomical data spanning 106 years.</p>
+      </article>
+      <article class="ach reveal">
+        <span class="ach__num">1,600+</span>
+        <h3>Photographs contributed</h3>
+        <p>To the WordPress Photo Directory.</p>
+      </article>
+      <article class="ach reveal">
+        <span class="ach__num">NPR 100,000</span>
+        <h3>Earned freelancing</h3>
+        <p>Web and mobile work alongside school.</p>
+      </article>
+      <article class="ach reveal">
+        <span class="ach__num">Youngest</span>
+        <h3>Speaker at WordCamp Bharatpur</h3>
+        <p>Among the youngest speakers at the event.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">07</span>
+      <h2 class="sec-title">Skills</h2>
+      <p class="sec-sub">Tools I've actually used to build or research something.</p>
+    </div>
+
+    <div class="skills">
+      <div class="skillset reveal">
+        <h3>Programming &amp; development</h3>
+        <ul>
+          <li>Python</li><li>Dart</li><li>Flutter</li><li>Firebase</li>
+          <li>JavaScript</li><li>HTML</li><li>CSS</li><li>Arduino</li><li>Raspberry Pi</li>
+        </ul>
+      </div>
+      <div class="skillset reveal">
+        <h3>AI &amp; research</h3>
+        <ul>
+          <li>Machine Learning</li><li>Deep Learning</li><li>CNN</li><li>ResNet</li>
+          <li>Data Analysis</li><li>Scientific Research</li><li>Kaggle</li>
+        </ul>
+      </div>
+      <div class="skillset reveal">
+        <h3>Design &amp; product</h3>
+        <ul>
+          <li>Figma</li><li>UI/UX Design</li><li>Prototyping</li>
+          <li>Product Development</li><li>Startup Strategy</li>
+        </ul>
+      </div>
+      <div class="skillset reveal">
+        <h3>Other</h3>
+        <ul>
+          <li>Git &amp; GitHub</li><li>Mobile App Development</li>
+          <li>Web Development</li><li>Technical Communication</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact__inner">
+      <p class="contact__eyebrow reveal">Contact</p>
+      <h2 class="contact__title reveal">
+        If you're building something that matters, <em>let's talk.</em>
+      </h2>
+      <p class="contact__lede reveal">
+        I'm always glad to hear from researchers, founders, students and anyone working on hard
+        problems — whether that's a collaboration, a question, or just a conversation.
+      </p>
+
+      <a class="contact__mail reveal" href="mailto:hello@example.com" data-replace="email">
+        hello@example.com
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+      <ul class="socials reveal">
+        <li><a href="#" data-replace="linkedin">LinkedIn</a></li>
+        <li><a href="#" data-replace="github">GitHub</a></li>
+        <li><a href="#" data-replace="instagram">Instagram</a></li>
+        <li><a href="#" data-replace="x">X / Twitter</a></li>
+        <li><a href="#" data-replace="wordpress">WordPress Photos</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span>© <span id="year">2026</span> Manjil Aryal</span>
+    <span class="footer__loc">Pokhara, Nepal · 28.2096° N, 83.9856° E</span>
+    <a href="#hero" class="footer__top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>
-

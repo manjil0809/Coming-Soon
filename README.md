@@ -1,195 +1,225 @@
-# Manjil Aryal — Personal Portfolio
+# Manjil Aryal — portfolio
 
-A fast, dependency-free personal portfolio site. Plain HTML5, CSS3 and vanilla
-JavaScript — no frameworks, no build step, no npm install.
+A single-page portfolio in plain HTML, CSS and JavaScript. No build step, no
+framework, no dependencies to install. Open `index.html` in a browser and it runs.
 
 ```
 manjil-aryal-portfolio/
-├── index.html          # all page content
-├── style.css           # all styling (design tokens at the top)
-├── script.js           # nav, reveal animations, hero canvas
-├── README.md
-└── assets/
-    ├── img/
-    │   ├── portrait.svg    # placeholder — replace with your photo
-    │   └── favicon.svg
-    └── projects/
-        ├── chilvy.svg      # placeholder project images (replace with
-        ├── shubhayatra.svg # real screenshots when you have them)
-        ├── cosog.svg
-        ├── biomedical.svg
-        ├── aavso.svg
-        ├── hamro-subidha.svg
-        └── aida.svg
+├── index.html        all the content lives here
+├── css/style.css     all the styling
+├── js/main.js        hero sequence, scroll reveals, nav, theme toggle
+├── assets/
+│   ├── manjil.jpg    your portrait, black and white
+│   ├── manjil.webp   the same portrait, smaller file
+│   └── chilvy.webp   the Chilvy screens
+└── README.md
 ```
 
 ---
 
-## 1. Run it
+## Adding a project image
 
-Just open `index.html` in a browser. That's it.
+Three entries have an empty image slot waiting: **COSOG**, **Remote biomedical
+monitoring**, and **Shubhayatra**. Each one shows the exact filename it wants.
 
-For a local server (nicer for testing, avoids any file:// quirks):
+1. Put your image in `assets/` under the name the slot asks for —
+   `cosog.webp`, `biomedical.webp`, `shubhayatra.webp`.
+2. Open `index.html`, find that entry, and delete the whole
+   `<div class="shot__empty">…</div>` block.
+3. Just above it there is a commented-out `<img>` line. Uncomment it and write a
+   real `alt` description.
 
-```bash
-cd manjil-aryal-portfolio
-python3 -m http.server 8000
-# then visit http://localhost:8000
-```
-
----
-
-## 2. Replace the placeholder links — do this first
-
-Every placeholder link is marked with a `data-replace` attribute, so you can find
-them all at once. Search `index.html` for `data-replace`.
-
-If you open the site and check the browser console, it also prints a list of the
-placeholders still left to fill in.
-
-| What | Where | Change |
-|---|---|---|
-| Your email | Contact section | `href="mailto:hello@example.com"` **and** the visible text |
-| LinkedIn / GitHub / Instagram / X / WordPress | `.socials` list in Contact | replace `href="#"` |
-| Project GitHub + demo links | `.proj__links` in each project card | replace `href="#"` |
-
-Once a link is real, you can delete its `data-replace="…"` attribute — and when
-they're all done, delete the last block in `script.js` (the placeholder-warning
-block) if you want.
-
----
-
-## 3. Swap in your images
-
-**Your photo** — put a 4:3-ish image at `assets/img/portrait.jpg`, then in
-`index.html`:
+So this:
 
 ```html
-<img src="assets/img/portrait.jpg" alt="Portrait of Manjil Aryal" loading="lazy">
+<figure class="shot">
+  <div class="shot__empty">
+    <span>Project image</span>
+    <code>assets/cosog.webp</code>
+  </div>
+</figure>
 ```
 
-**Project screenshots** — drop them in `assets/projects/` and point each card's
-`<img src="…">` at the new file. A 16:10 ratio (e.g. 1600×1000) fits the cards
-best; the feature card (Chilvy) can take something taller. Keep the SVGs as
-fallbacks until you have real screenshots — they're vector, so they stay sharp.
+becomes this:
 
-Compress photos before committing them (`tinypng.com` or `squoosh.app`). Nothing
-hurts a portfolio's first impression more than a 4 MB hero image.
-
----
-
-## 4. Change the design
-
-All design tokens live in `:root` at the top of `style.css`:
-
-```css
-:root{
-  --ink:    #08090b;   /* page background            */
-  --ink-2:  #0c0e11;   /* alternating section bg     */
-  --text:   #e9e9ec;   /* body text                  */
-  --brass:  #d8a657;   /* primary accent             */
-  --slate:  #7f9cc9;   /* secondary accent           */
-  --serif:  "Instrument Serif", …;   /* display font */
-  --sans:   "Inter", …;              /* body font    */
-}
+```html
+<figure class="shot">
+  <img src="assets/cosog.webp" loading="lazy" decoding="async"
+       alt="A leaf photographed in the app, with the detected disease named below it.">
+  <figcaption>What the detector returns from a single photograph.</figcaption>
+</figure>
 ```
 
-Change `--brass` and the whole site re-tints — buttons, numbers, borders,
-hover states and the pulsing star in the hero. Some ideas if you want a different
-feel: `#7cc5a9` (jade), `#8b9cff` (periwinkle), `#e0674f` (terracotta).
+The `<figcaption>` is optional — delete the line if you do not want one. Chilvy
+already has both, so copy that entry if you would rather work from a filled example.
 
-Fonts come from Google Fonts via the `<link>` in `<head>`. To self-host or swap
-them, change that link and the `--serif` / `--sans` values.
+**What to shoot.** Screenshots of the actual thing beat renders. For COSOG, the
+detection result on screen. For the biomedical work, a photograph of the rig with
+the sensors visible. For Shubhayatra, a Figma frame or a slide from the pitch.
+Anything around 1400–1600px wide is plenty. `.webp` keeps the file small; `.png`
+and `.jpg` work too, just change the extension in the `src`.
 
----
-
-## 5. Edit the content
-
-Everything is in `index.html`, in plain semantic HTML, in the order it appears on
-the page:
-
-1. Hero
-2. About
-3. Experience (`<ol class="timeline">` — copy an `<li class="tl reveal">` to add an entry)
-4. Selected Projects (copy an `<article class="proj reveal">` block to add one)
-5. Research
-6. Leadership & Community
-7. Achievements (copy an `<article class="ach reveal">`; `ach--wide` spans two columns)
-8. Skills (just `<li>` items inside each `.skillset`)
-9. Contact
-
-Keep the `reveal` class on anything new — that's what triggers the scroll-in
-animation. Add `style="--d:.15s"` to stagger it.
-
-To **remove** a section: delete its `<section>` and the matching links in both
-`.nav__links` and `.mobile-menu__links`.
+**If an entry never gets an image**, delete its whole `<figure class="shot">` block.
+The layout closes up cleanly — nothing else needs touching.
 
 ---
 
-## 6. Deploy
+## Before you publish — fill these in
 
-### GitHub Pages (free, recommended)
+**1. Your contact details** — `index.html`, the `#contact` section near the bottom.
+Four links currently read `[ add your email ]` and so on. Replace the text and the
+`href`, then delete `class="is-placeholder"` from each so they stop rendering grey
+and italic.
 
-```bash
-cd manjil-aryal-portfolio
-git init
-git add .
-git commit -m "Initial portfolio"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-USERNAME.github.io.git
-git push -u origin main
+```html
+<li><a href="mailto:you@example.com">you@example.com</a></li>
+<li><a href="https://github.com/yourhandle">GitHub</a></li>
 ```
 
-Naming the repo `YOUR-USERNAME.github.io` publishes it at
-`https://YOUR-USERNAME.github.io`. For any other repo name, go to
-**Settings → Pages → Source: main / root**, and it'll be served at
-`https://YOUR-USERNAME.github.io/REPO-NAME/`.
+**2. Your live URL and a share image** — in `<head>`, the commented-out `canonical`,
+`og:url` and `og:image` tags. These control how the link looks when it is pasted
+into a chat or posted anywhere. Without `og:image` the link appears as plain text,
+which matters if you are sending this to anyone.
 
-### Netlify or Vercel
+**3. A Chilvy link**, if you have one — there is a commented-out `entry__links`
+line in the Chilvy entry ready for it.
 
-Drag the folder onto [app.netlify.com/drop](https://app.netlify.com/drop) — done,
-live in seconds. Or connect the GitHub repo for automatic deploys on every push.
-No build command, no output directory; it's a static site.
-
-### Custom domain
-
-Buy a domain, point it at your host, and add it under **Settings → Pages →
-Custom domain** (GitHub) or **Domain settings** (Netlify/Vercel). HTTPS is
-automatic on all three.
+**4. The WordCamp Bharatpur year** — that row in the Community section shows a dash
+because the year was not in your profile document. Fill it in and the column lines up.
 
 ---
 
-## 7. Before you share it
+## Two figures to confirm before this goes live
 
-- [ ] Replaced every `data-replace` link
-- [ ] Real email in the Contact section
-- [ ] Your photo in place of `portrait.svg`
-- [ ] Project screenshots added where you have them
-- [ ] Updated `<title>` and the `description` / `og:description` meta tags
-- [ ] Added an `og:image` (1200×630) so link previews look right when shared
-- [ ] Checked it on your phone
-- [ ] Tabbed through the page with the keyboard — focus rings should be visible
-- [ ] Ran it through [PageSpeed Insights](https://pagespeed.web.dev/)
+Your profile document flagged both of these, so they are on the page but worth a
+second look first:
 
----
+- **"Reported to reach 89+ farmers"** (COSOG). Swap in whatever the latest
+  verified number is, or cut the line from the margin column.
+- **The National Merit Scholarship selectivity.** The page says only that it was
+  awarded by the Government of Nepal through a competitive national examination.
+  The "top 0.01%" framing was left off deliberately — add it only if you can
+  point to a source.
 
-## Accessibility & performance notes
-
-Already handled, worth not breaking:
-
-- Semantic landmarks (`header`, `main`, `section`, `footer`) and a skip link
-- Visible focus states on every interactive element
-- `aria-expanded` / `aria-hidden` wired to the mobile menu, which also closes on `Esc`
-- Full `prefers-reduced-motion` support — animations off, hero canvas hidden
-- Hero canvas pauses when scrolled out of view or the tab is hidden
-- Images lazy-loaded; no external JS or CSS beyond the font stylesheet
-- A print stylesheet, so the page prints as a clean document
+Everything else on the page comes straight from your profile document. Roles are
+as you stated them, the biomedical work is described as a prototype rather than a
+product, and no proficiency percentages appear anywhere.
 
 ---
 
-## Browser support
+## Editing it
 
-Chrome, Edge, Firefox and Safari (last two major versions). Uses
-`IntersectionObserver`, CSS custom properties and `clamp()` — all widely
-supported. Older browsers get the content and layout, just without the reveal
-animations.
+**Text** — open `index.html`. It is ordered the way the page is, with each section
+marked by a comment banner. Prose sits in `<div class="column">`; the facts that
+appear in the narrow left-hand column sit in `<aside class="margin">` just above it.
+
+**Adding a project** — copy any `<article class="sheet entry">` block, change the
+`id`, and edit. The layout handles the rest.
+
+**Moving a small project up** — the two short pieces at the end of the work section
+(Hamro Subidha, AIDA) sit in a compact `<ul class="also">` list. If one of them
+grows into something with a screenshot and a real story, promote it: copy a full
+`<article class="sheet entry">` block and move the text across.
+
+**Your photo** — replace `assets/manjil.jpg` and `assets/manjil.webp` with any
+portrait. The CSS crops to 4:5 and converts to black and white for you, so you can
+drop in a colour photo of any shape and it will still sit correctly. If you only
+have one file, delete the `<source>` line in the `<picture>` block and point the
+`<img src>` at it.
+
+**Colours** — the top of `css/style.css`, in `:root`. Six values:
+
+| Token | Does |
+|---|---|
+| `--stone` | page background |
+| `--paper` | raised surfaces, including the frame around project images |
+| `--ink` | text |
+| `--graphite` | secondary text |
+| `--hairline` | rules and borders |
+| `--marigold` | the single accent |
+
+Dark theme values are in the `html[data-theme="dark"]` block right underneath.
+Change one token and it updates everywhere.
+
+**Type** — Archivo (a variable grotesque) for headings and anything structural,
+Newsreader (a serif) for reading. The hero animation uses Archivo's width axis,
+so if you swap the display face for one without a `wdth` axis, the name will fade
+in instead of opening out. Nothing breaks.
+
+---
+
+## How the motion works
+
+One deliberate moment, then quiet. On load, your name rises into place while
+Archivo opens from condensed to full width. After that, sections fade in once as
+you reach them, links underline on hover, and that is all.
+
+- Everything is CSS transitions driven by `IntersectionObserver`. No animation library.
+- `prefers-reduced-motion: reduce` is respected — all of it switches off and the
+  page renders statically.
+- If JavaScript fails or is off, the full page still renders and reads. The
+  reveal marks are removed on error rather than leaving content hidden.
+
+---
+
+## Deploying
+
+Any static host works. The whole thing is three files plus images.
+
+**GitHub Pages** — push the folder to a repo, then Settings → Pages → deploy from
+the `main` branch, root. Live at `username.github.io/repo-name`.
+
+**Netlify or Cloudflare Pages** — drag the folder onto the dashboard. No build
+command, no publish directory.
+
+**Your own host** — upload the contents by FTP. There is nothing to run.
+
+### Fonts
+
+Fonts load from Google Fonts over the network. To self-host instead — faster, and
+no third-party request — download both families, put the `.woff2` files in
+`assets/`, delete the three `<link>` tags for fonts in `<head>`, and add
+`@font-face` rules at the top of `style.css`.
+
+---
+
+## What changed in this version
+
+- **Your portrait** sits in the margin column of the opening section, in black and
+  white, framed with a hairline. On phones it leads the section rather than trailing
+  it. The conversion is baked into the file and reinforced in CSS, so it stays
+  monochrome even if you swap in a colour photo.
+- **Project image slots** on the four substantial entries. Chilvy is filled with
+  your screens; the other three show a labelled empty slot that reads as deliberate
+  rather than broken, and prints as nothing at all.
+- **Shorter project writing.** Chilvy went from four paragraphs to two — the
+  numbers it was repeating already live in the margin column, so the prose does not
+  need to carry them. The same cut was made across every entry.
+- **Hamro Subidha and AIDA moved into a compact "Also built" list.** Two thin
+  entries at full size made the work section sag; at list size they read as range
+  instead of padding.
+- **Numbered sections** (01–06) in the band titles, which gives a long single page
+  some navigational spine.
+- **Fixed a path bug.** The old `index.html` loaded `style.css` and `main.js` from
+  the root while the README described them in `css/` and `js/`. The folders now
+  match the markup — the site would have rendered unstyled on a real host otherwise.
+- **Head tags** for sharing and search: a `theme-color` that follows the theme, an
+  inline SVG favicon with no extra file, and Person structured data.
+- **Image loading** is lazy below the fold with width and height declared, so
+  nothing jumps as the page loads.
+
+---
+
+## What I checked
+
+Rendered at 1440px and 390px, in both themes: no horizontal overflow at any of
+them, no console errors, keyboard focus visible throughout, a skip link to the
+content, and it prints to a clean sheet without the nav or the empty image slots.
+
+On contrast: body text is 21:1 and secondary grey text is 6.0:1 on light and
+6.4:1 on dark, both clear of the 4.5:1 threshold. Marigold is deliberately never
+used for text — at 1.8:1 against the stone background it would fail — so it only
+ever appears as markers, rules and borders. The section numbers are set in
+graphite for the same reason. Hover on the
+contact links shifts them sideways rather than recolouring them, so the cue does
+not depend on colour.

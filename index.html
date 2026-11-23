@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,46 +11,55 @@
 <meta property="og:description" content="Software developer, researcher, and entrepreneur from Pokhara, Nepal.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+
 <!-- TODO: add your live URL and a share image once the site is deployed.
-     <link rel="canonical" href="https://your-domain/">
-     <meta property="og:url" content="https://your-domain/">
-     <meta property="og:image" content="https://your-domain/assets/share.jpg"> -->
+<link rel="canonical" href="https://your-domain/">
+<meta property="og:url" content="https://your-domain/">
+<meta property="og:image" content="https://your-domain/assets/share.jpg">
+-->
 
 <meta name="theme-color" content="#E6E4DE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121210" media="(prefers-color-scheme: dark)">
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121210'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23E0A21A'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 
-<!-- Runs before first paint so the page never flashes the wrong theme -->
 <script>
-  (function () {
-    var r = document.documentElement;
-    r.classList.add('js');
-    try {
-      var saved = localStorage.getItem('theme');
-      if (saved) r.setAttribute('data-theme', saved);
-      else if (matchMedia('(prefers-color-scheme: dark)').matches) r.setAttribute('data-theme', 'dark');
-    } catch (e) { /* storage unavailable — stay on the light default */ }
-  })();
+(function () {
+  var r = document.documentElement;
+  r.classList.add('js');
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved) r.setAttribute('data-theme', saved);
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+      r.setAttribute('data-theme', 'dark');
+    }
+  } catch (e) {
+    /* storage unavailable — stay on the light default */
+  }
+})();
 </script>
 </head>
 
 <body>
+
 <a class="skip" href="#work">Skip to the work</a>
 
 <header class="topbar" id="topbar">
   <a class="topbar__name" href="#top">Manjil Aryal</a>
+
   <nav class="topbar__nav" aria-label="Sections">
     <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
     <a href="#community">Community</a>
     <a href="#toolkit">Toolkit</a>
     <a href="#contact">Contact</a>
   </nav>
+
   <button class="theme" id="theme" type="button" aria-pressed="false">
     <span class="theme__dot" aria-hidden="true"></span>
     <span class="theme__label">Dark</span>
@@ -58,7 +68,7 @@
 
 <main id="top">
 
-  <!-- ─────────────────────────────  HERO  ───────────────────────────── -->
+  <!-- HERO -->
   <section class="hero" id="hero">
     <h1 class="hero__name" aria-label="Manjil Aryal">
       <span class="hero__word" data-word><span>Manjil</span></span>
@@ -70,28 +80,40 @@
         I build software, run the research behind it, and gather the people
         around it. Mostly from Pokhara, Nepal.
       </p>
+
       <dl class="hero__meta">
-        <div><dt>Based in</dt><dd>Pokhara, Nepal</dd></div>
-        <div><dt>Currently</dt><dd>Co-founder &amp; CTO, Chilvy</dd></div>
-        <div><dt>Hoping to read</dt><dd>Computer Science &amp; Applied Mathematics</dd></div>
+        <div>
+          <dt>Based in</dt>
+          <dd>Pokhara, Nepal</dd>
+        </div>
+        <div>
+          <dt>Currently</dt>
+          <dd>Co-founder &amp; CTO, Chilvy</dd>
+        </div>
+        <div>
+          <dt>Hoping to read</dt>
+          <dd>Computer Science &amp; Applied Mathematics</dd>
+        </div>
       </dl>
     </div>
   </section>
 
-  <!-- ─────────────────────────────  INTRO  ──────────────────────────── -->
+  <!-- INTRO -->
   <section class="band" id="about">
     <div class="sheet">
       <aside class="margin margin--lead">
         <figure class="portrait">
           <picture>
-            <source srcset="manjil.JPG" type="image/JPG">
+            <source srcset="manjil.JPG" type="image/jpeg">
             <img src="manjil.JPG" width="1200" height="1500"
                  alt="Manjil Aryal" fetchpriority="high" decoding="async">
           </picture>
         </figure>
+
         <p class="margin__note">First-generation college student</p>
         <p class="margin__note">Grew up around an NGO residential community of roughly 150 children</p>
       </aside>
+
       <div class="column">
         <p class="lede">
           Most of what I have made started as a problem I kept noticing. A rating
@@ -99,6 +121,7 @@
           to identify what is killing a crop. A patient who is only monitored while
           somebody is standing in the room.
         </p>
+
         <p>
           I work in three modes and they feed each other. I build — mobile and web
           applications, machine learning systems, hardware prototypes. I research —
@@ -106,6 +129,7 @@
           systems. And I organise — teams, events and communities, because almost
           nothing worth making is a one-person job.
         </p>
+
         <p>
           I grew up in Pokhara, much of it around an NGO residential environment that
           housed about 150 children. Being raised among people from that many
@@ -114,6 +138,7 @@
           technology has been self-directed: reading, building, breaking things, and
           finding people who knew more than I did.
         </p>
+
         <p>
           What I have taken from it so far is that writing code cannot solve a problem
           you have not properly understood yet.
@@ -122,14 +147,15 @@
     </div>
   </section>
 
-  <!-- ─────────────────────────────  WORK  ───────────────────────────── -->
+  <!-- SELECTED WORK -->
   <section class="band band--rule" id="work">
     <h2 class="band__title"><span class="band__num">01</span>Selected work</h2>
 
-    <!-- ── Chilvy ───────────────────────────────────────────────────── -->
+    <!-- CHILVY -->
     <article class="sheet entry" id="chilvy">
       <aside class="margin">
         <p class="margin__role">Co-founder &amp; CTO</p>
+
         <ul class="margin__facts">
           <li><b>$5,000</b> seed funding raised</li>
           <li><b>12</b> database tables, <b>6</b> views</li>
@@ -137,8 +163,14 @@
           <li><b>164</b> tests run locally</li>
           <li>English and Nepali</li>
         </ul>
-        <p class="margin__stack">Flutter, Riverpod, go_router<br>Supabase, Firebase<br>iOS and Android</p>
+
+        <p class="margin__stack">
+          Flutter, Riverpod, go_router<br>
+          Supabase, Firebase<br>
+          iOS and Android
+        </p>
       </aside>
+
       <div class="column">
         <h3 class="entry__name">Chilvy</h3>
         <p class="entry__sub">A food-discovery app built around the dish, not the restaurant.</p>
@@ -156,6 +188,7 @@
           against what you have already rated, and keep a diary of what you actually
           ate rather than where you happened to sit.
         </p>
+
         <p>
           I co-founded the company, raised the seed funding, and built the app —
           Flutter on iOS and Android, Riverpod and go_router over Supabase, after an
@@ -163,33 +196,32 @@
           fair amount of it after hitting scaling problems. It was answering why a
           person would open this twice.
         </p>
-        <!-- TODO: link to the app or a case study if you have one.
-             <p class="entry__links"><a href="#">Chilvy</a></p> -->
       </div>
     </article>
 
-    <!-- ── COSOG ────────────────────────────────────────────────────── -->
+    <!-- COSOG -->
     <article class="sheet entry" id="cosog">
       <aside class="margin">
         <p class="margin__role">Team of six</p>
+
         <ul class="margin__facts">
           <li>Selected from <b>1,087</b> applicants</li>
           <li>Reported to reach <b>89+</b> farmers</li>
         </ul>
-        <p class="margin__stack">Python<br>Convolutional neural networks, ResNet<br>Kaggle datasets</p>
+
+        <p class="margin__stack">
+          Python<br>
+          Convolutional neural networks, ResNet<br>
+          Kaggle datasets
+        </p>
       </aside>
+
       <div class="column">
         <h3 class="entry__name">COSOG</h3>
         <p class="entry__sub">Plant disease detection from a photograph of a leaf.</p>
 
-        <!-- TODO: drop a screenshot or photo in assets/, then replace the whole
-             <div class="shot__empty"> below with this line:
-              -->
         <figure class="shot">
-            <img src="cosog.png" loading="lazy" decoding="async" alt="Describe the image here.">
-            <!-- <span>Project image</span> -->
-            <!-- <code>cosog.png</code> -->
-          <!-- </div> -->
+          <img src="cosog.png" loading="lazy" decoding="async" alt="COSOG plant disease detection project.">
         </figure>
 
         <p>
@@ -202,29 +234,29 @@
       </div>
     </article>
 
-    <!-- ── Biomedical monitoring ────────────────────────────────────── -->
+    <!-- BIOMEDICAL MONITORING -->
     <article class="sheet entry" id="biomedical">
       <aside class="margin">
         <p class="margin__role">Biomedical systems research intern</p>
         <p class="margin__note">Dr. Koirala Research Institute for Biotechnology and Biodiversity</p>
+
         <ul class="margin__facts">
           <li><b>6</b> sensors integrated</li>
           <li>Prototype, not a shipped product</li>
         </ul>
-        <p class="margin__stack">Arduino, Raspberry Pi<br>Web and mobile monitoring</p>
+
+        <p class="margin__stack">
+          Arduino, Raspberry Pi<br>
+          Web and mobile monitoring
+        </p>
       </aside>
+
       <div class="column">
         <h3 class="entry__name">Remote biomedical monitoring</h3>
         <p class="entry__sub">A sensor prototype that reports when nobody is in the room.</p>
 
-        <!-- TODO: drop a photo of the rig in assets/, then replace the whole
-             <div class="shot__empty"> below with this line:
-             <img src="assets/biomedical.webp" loading="lazy" decoding="async" alt="Describe the image here."> -->
         <figure class="shot">
-          <img src="research.jpg" loading="lazy" decoding="async" alt="Describe the image here.">
-            <!-- <span>Project image</span>
-            <code>research.jpg</code>
-          </div> -->
+          <img src="research.jpg" loading="lazy" decoding="async" alt="Biomedical monitoring research prototype.">
         </figure>
 
         <p>
@@ -237,29 +269,29 @@
       </div>
     </article>
 
-    <!-- ── Shubhayatra ──────────────────────────────────────────────── -->
+    <!-- SHUBHAYATRA -->
     <article class="sheet entry" id="shubhayatra">
       <aside class="margin">
         <p class="margin__role">Incubate Nepal 2025 mentee</p>
+
         <ul class="margin__facts">
-          <li>One of <b>34</b> mentees </li>
+          <li>One of <b>34</b> mentees</li>
           <li><b>1000+</b> surveys</li>
           <li><b>100+</b> interviews</li>
         </ul>
-        <p class="margin__stack">Figma prototype<br>User research, pitching</p>
+
+        <p class="margin__stack">
+          Figma prototype<br>
+          User research, pitching
+        </p>
       </aside>
+
       <div class="column">
         <h3 class="entry__name">Shubhayatra</h3>
         <p class="entry__sub">A travel-technology concept, researched before it was designed.</p>
 
-        <!-- TODO: drop a Figma frame or pitch slide in assets/, then replace the whole
-             <div class="shot__empty"> below with this line:
-             <img src="assets/shubhayatra.webp" loading="lazy" decoding="async" alt="Describe the image here."> -->
         <figure class="shot">
-          <img src="Shubha.jpg" loading="lazy" decoding="async" alt="Describe the image here.">
-            <!-- <span>Project image</span>
-            <code>assets/shubhayatra.webp</code>
-          </div> -->
+          <img src="Shubha.jpg" loading="lazy" decoding="async" alt="Shubhayatra travel technology prototype.">
         </figure>
 
         <p>
@@ -268,6 +300,7 @@
           Figma; the real work was the research, the pitching, and the arithmetic on
           revenue, operating cost and whether the thing could pay for itself.
         </p>
+
         <p>
           The feedback that stuck with me was the distinction between an interesting
           product and a business that survives. They are not the same object.
@@ -275,68 +308,49 @@
       </div>
     </article>
 
-    <!-- ── Smaller pieces ───────────────────────────────────────────── -->
+    <!-- OTHER PROJECTS -->
     <div class="sheet">
       <aside class="margin">
         <p class="margin__role">Also built</p>
       </aside>
+
       <div class="column">
         <ul class="also">
+
           <li class="also__item" id="hamro-subidha">
             <h3 class="also__name">Hamro Subidha</h3>
             <p>
-              A centralized platform bringing together information on 70+ government schemes and public services across multiple ministries, helping citizens discover eligibility requirements, understand available benefits, and access services they may otherwise struggle to find.
+              A centralized platform bringing together information on 70+ government
+              schemes and public services across multiple ministries, helping citizens
+              discover eligibility requirements, understand available benefits, and
+              access services they may otherwise struggle to find.
             </p>
           </li>
+
           <li class="also__item" id="aida">
             <h3 class="also__name">AIDA</h3>
             <p>
-              Developed an AI-powered accessibility tool to help Deaf and hard-of-hearing users communicate by bridging Nepali Sign Language and spoken communication.
+              Developed an AI-powered accessibility tool to help Deaf and
+              hard-of-hearing users communicate by bridging Nepali Sign Language
+              and spoken communication.
             </p>
           </li>
+
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ──────────────────────────  EXPERIENCE  ────────────────────────── -->
-  <section class="band band--rule" id="experience">
-    <h2 class="band__title"><span class="band__num">02</span>Experience</h2>
-    <div class="sheet">
-      <aside class="margin">
-        <p class="margin__note">Roles held to date</p>
-      </aside>
-      <div class="column">
-        <ul class="roles">
-          <li class="role">
-            <h3 class="role__name">Lumino</h3>
-            <p class="role__meta">Intern, roughly eight months</p>
-            <p>Worked in a technology team with exposure to blockchain and Web3 alongside web development.</p>
-          </li>
-          <li class="role">
-            <h3 class="role__name">Dr. Koirala Research Institute for Biotechnology and Biodiversity</h3>
-            <p class="role__meta">Biomedical systems research intern</p>
-            <p>Built the six-sensor remote monitoring prototype described above.</p>
-          </li>
-          <li class="role">
-            <h3 class="role__name">Freelance</h3>
-            <p class="role__meta">Approximately NPR 100,000 earned</p>
-            <p>Client work, taken end to end: understanding the requirement, delivering it, and keeping the person informed while I did.</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ──────────────────────────  COMMUNITY  ─────────────────────────── -->
+  <!-- COMMUNITY AND LEADERSHIP -->
   <section class="band band--rule" id="community">
-    <h2 class="band__title"><span class="band__num">03</span>Community and leadership</h2>
+    <h2 class="band__title"><span class="band__num">02</span>Community and leadership</h2>
 
     <div class="sheet">
       <aside class="margin">
         <p class="margin__role">WordCamp Nepal</p>
         <p class="margin__note">Four years, four different jobs</p>
       </aside>
+
       <div class="column">
         <p class="lede">
           I turned up to WordCamp Nepal 2025 as an attendee, having travelled about
@@ -345,39 +359,49 @@
         </p>
 
         <ol class="progression">
+
           <li class="step">
             <span class="step__year">2025</span>
             <div>
               <h3 class="step__role">Attendee</h3>
-              <p>Travelled roughly 200 km with six friends, got pulled into the
-                 WordPress community, and contributed more than 1,600 photographs to
-                 the WordPress Photo Directory.</p>
+              <p>
+                Travelled roughly 200 km with six friends, got pulled into the
+                WordPress community, and contributed more than 1,600 photographs to
+                the WordPress Photo Directory.
+              </p>
             </div>
           </li>
+
           <li class="step">
             <span class="step__year">2026</span>
             <div>
               <h3 class="step__role">Volunteer lead</h3>
-              <p>Ran Hall 2 operations in Pokhara with a team of about 40 volunteers,
-                 at an event with more than 800 participants.</p>
+              <p>
+                Ran Hall 2 operations in Pokhara with a team of about 40 volunteers,
+                at an event with more than 800 participants.
+              </p>
             </div>
           </li>
+
           <li class="step">
-            <!-- TODO: add the year of WordCamp Bharatpur in place of the dash. -->
             <span class="step__year" aria-label="Year to be confirmed">—</span>
             <div>
               <h3 class="step__role">Speaker, WordCamp Bharatpur</h3>
               <p>One of the youngest speakers on the programme.</p>
             </div>
           </li>
+
           <li class="step">
             <span class="step__year">2027</span>
             <div>
               <h3 class="step__role">Communication team</h3>
-              <p>Social content, promotional material, and sponsor and volunteer
-                 communication for the event in Nepalgunj on 29–30 January 2027.</p>
+              <p>
+                Social content, promotional material, and sponsor and volunteer
+                communication for the event in Nepalgunj on 29–30 January 2027.
+              </p>
             </div>
           </li>
+
         </ol>
       </div>
     </div>
@@ -386,91 +410,124 @@
       <aside class="margin">
         <p class="margin__role">Elsewhere</p>
       </aside>
+
       <div class="column">
         <ul class="roles">
+
           <li class="role">
             <h3 class="role__name">Interact District 3292</h3>
-            <p class="role__meta">District President; previously Lakeside Club Vice President and District IT Head</p>
-            <p>Community service and organisational leadership across the district, working with students on initiatives and activities.</p>
+            <p class="role__meta">
+              District President; previously Lakeside Club Vice President and District IT Head
+            </p>
+            <p>
+              Community service and organisational leadership across the district,
+              working with students on initiatives and activities.
+            </p>
           </li>
+
           <li class="role">
             <h3 class="role__name">ICT Club</h3>
             <p class="role__meta">President, elected with 531 votes</p>
-            <p>Led student technology initiatives and ran activities aimed at getting more students to try building something.</p>
+            <p>
+              Led student technology initiatives and ran activities aimed at getting
+              more students to try building something.
+            </p>
           </li>
+
           <li class="role">
             <h3 class="role__name">CyberUtsav</h3>
             <p class="role__meta">Organising team, three seasons</p>
-            <p>Helped run an international high-school hackathon, creating somewhere for students to try technology and collaborative problem-solving.</p>
+            <p>
+              Helped run an international high-school hackathon, creating somewhere
+              for students to try technology and collaborative problem-solving.
+            </p>
           </li>
+
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ───────────────────────────  TOOLKIT  ──────────────────────────── -->
+  <!-- TOOLKIT -->
   <section class="band band--rule" id="toolkit">
-    <h2 class="band__title"><span class="band__num">04</span>Toolkit</h2>
+    <h2 class="band__title"><span class="band__num">03</span>Toolkit</h2>
+
     <div class="sheet">
       <aside class="margin">
         <p class="margin__note">Listed without proficiency scores, because those are made up.</p>
       </aside>
+
       <div class="column">
         <div class="kit">
+
           <div class="kit__group">
             <h3>Languages</h3>
             <p>Python, C, Dart, JavaScript, HTML, CSS</p>
           </div>
+
           <div class="kit__group">
             <h3>Application development</h3>
             <p>Flutter, Riverpod, go_router, Firebase, Supabase, responsive web, backend development</p>
           </div>
+
           <div class="kit__group">
             <h3>Machine learning</h3>
             <p>Deep learning, convolutional neural networks, ResNet, data analysis, Kaggle</p>
           </div>
+
           <div class="kit__group">
             <h3>Hardware</h3>
             <p>Arduino, Raspberry Pi, sensor integration, hardware–software integration</p>
           </div>
+
           <div class="kit__group">
             <h3>Data and computer science</h3>
             <p>SQL, relational design, data structures, algorithms, Big O analysis, authentication, authorisation, row-level security, testing</p>
           </div>
+
           <div class="kit__group">
             <h3>Design and product</h3>
             <p>Figma, UI/UX, prototyping, product strategy, user research</p>
           </div>
+
           <div class="kit__group">
             <h3>Elsewhere</h3>
             <p>Git, GitHub, technical writing, research, project management</p>
           </div>
+
           <div class="kit__group">
             <h3>Currently reading into</h3>
             <p>Quantum optimisation — where mathematics, algorithms and new computing hardware meet</p>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ──────────────────────────  EDUCATION  ─────────────────────────── -->
+  <!-- EDUCATION -->
   <section class="band band--rule" id="education">
-    <h2 class="band__title"><span class="band__num">05</span>Education and recognition</h2>
+    <h2 class="band__title"><span class="band__num">04</span>Education and recognition</h2>
+
     <div class="sheet">
       <aside class="margin">
         <p class="margin__role">National Merit Scholarship</p>
-        <p class="margin__note">Full high-school tuition, awarded by the Government of Nepal through a competitive national examination</p>
+        <p class="margin__note">
+          Full high-school tuition, awarded by the Government of Nepal through a competitive national examination
+        </p>
       </aside>
+
       <div class="column">
         <h3 class="entry__name">SOS Hermann Gmeiner School Gandaki</h3>
         <p class="entry__sub">Pokhara, Nepal — secondary education, science.</p>
+
         <p>
           Computer science, physics, chemistry, mathematics, additional mathematics,
           English and Nepali. My tuition was covered in full by a national merit
           scholarship from the Government of Nepal, awarded through a competitive
           national examination.
         </p>
+
         <p>
           Outside the syllabus I worked through Harvard's CS50 and kept going: Scratch
           and C, memory management and pointers, algorithms and Big O, recursion, hash
@@ -478,6 +535,7 @@
           and application security. Most of it went straight into Chilvy, which is the
           only reason any of it stuck.
         </p>
+
         <p>
           I want to read computer science alongside applied mathematics.
         </p>
@@ -485,9 +543,10 @@
     </div>
   </section>
 
-  <!-- ───────────────────────────  OFFLINE  ──────────────────────────── -->
+  <!-- AWAY FROM THE SCREEN -->
   <section class="band band--rule" id="offline">
-    <h2 class="band__title"><span class="band__num">06</span>Away from the screen</h2>
+    <h2 class="band__title"><span class="band__num">05</span>Away from the screen</h2>
+
     <div class="sheet">
       <aside class="margin">
         <ul class="margin__facts">
@@ -496,12 +555,14 @@
           <li><b>1,600+</b> photographs contributed</li>
         </ul>
       </aside>
+
       <div class="column">
         <p>
           I keep wicket and bat, across nine tournaments and two winning sides. Cricket
           is where I learned that being individually good at something is not the same
           as being useful to the side.
         </p>
+
         <p>
           I have helped organise badminton tournaments at school, mostly to give more
           people a reason to turn up and play. And I photograph things — more than
@@ -512,16 +573,18 @@
     </div>
   </section>
 
-  <!-- ───────────────────────────  CONTACT  ──────────────────────────── -->
+  <!-- CONTACT -->
   <section class="band band--rule contact" id="contact">
     <div class="sheet">
       <aside class="margin">
         <p class="margin__note">Pokhara, Nepal</p>
       </aside>
+
       <div class="column">
-        <h2 class="contact__head">If you are building something that matters, I would like to hear about it.</h2>
-        <!-- TODO: replace every placeholder below with your real address and handles,
-             then delete the "is-placeholder" class so it stops looking unfinished. -->
+        <h2 class="contact__head">
+          If you are building something that matters, I would like to hear about it.
+        </h2>
+
         <ul class="links">
           <li><a class="is-placeholder" href="mailto:ADD_YOUR_EMAIL">[ add your email ]</a></li>
           <li><a class="is-placeholder" href="#">[ add your GitHub ]</a></li>
@@ -545,11 +608,16 @@
   "@type": "Person",
   "name": "Manjil Aryal",
   "jobTitle": "Software developer and researcher",
-  "address": { "@type": "PostalAddress", "addressLocality": "Pokhara", "addressCountry": "NP" },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pokhara",
+    "addressCountry": "NP"
+  },
   "description": "Software developer, researcher, and entrepreneur from Pokhara, Nepal. Co-founder and CTO of Chilvy."
 }
 </script>
 
 <script src="main.js"></script>
+
 </body>
 </html>
